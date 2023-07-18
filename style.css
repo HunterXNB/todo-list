@@ -1,0 +1,216 @@
+:root {
+  --dark: #374151;
+  --darker: #1f2937;
+  --darkest: #111827;
+  --gray: #6b7280;
+  --light: #eee;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Fira sans", sans-serif;
+  background-color: var(--dark);
+  width: 100vw;
+  min-height: 100vh;
+  padding: 25px;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--gray);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+#form {
+  display: flex;
+}
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+#text {
+  flex: 1 1 0%;
+  background-color: var(--darker);
+  padding: 1rem;
+  margin-right: 1rem;
+  color: var(--light);
+  font-size: 1.25rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+#text::placeholder {
+  color: var(--gray);
+}
+input[type="submit"] {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  cursor: pointer;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+input[type="submit"]:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+input[type="submit"]:active {
+  opacity: 0.6;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+main {
+  flex: 1 1 0%;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+main h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--darkest);
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.task .content .text {
+  color: var(--light);
+  font-size: 1.125rem;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  cursor: pointer;
+}
+.task .content .text:not(:read-only) {
+  color: var(--pink);
+}
+.task .actions {
+  display: flex;
+  margin: 0 --0.5rem;
+}
+.task .actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+.task .actions button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.task .actions button:active {
+  opacity: 0.6;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.edit {
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--pink);
+}
+.del {
+  color: crimson;
+}
+.save {
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--pink);
+}
+.hidden {
+  display: none;
+}
+.task .content {
+  display: flex;
+  color: var(--light);
+  font-size: 1.125rem;
+  gap: 5px;
+}
+.task.done {
+  background-color: var(--darker);
+}
+.task.done .content :is(p, input) {
+  color: var(--gray);
+}
+.task.done .content input {
+  text-decoration: line-through;
+}
+.tasks-container:not(:has(.task))::before {
+  content: "There is no tasks added yet.";
+  text-align: center;
+  color: var(--gray);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+@media screen and (max-width: 600px) {
+  #text {
+    min-width: 50px;
+  }
+}
